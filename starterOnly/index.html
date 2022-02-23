@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -12,12 +12,13 @@
     />
   </head>
   <body>
+
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
       <img alt="logo" src="img/Logo.png" width="auto" height="auto" />
     </div>
-    <div class="main-navbar">
-      
+
+    <div class="main-navbar">  
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -27,8 +28,9 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    </div>
-  </div>
+    </div> <!--??-->
+
+  </div>   <!--??-->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -55,6 +57,9 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
+
+
+          <!--Formulaire-->
           <div class="modal-body">
             <form
               name="reserve"
@@ -73,6 +78,7 @@
                   minlength="2"
                 /><br>
               </div>
+
               <div
                 class="formData">
                 <label>Nom</label><br>
@@ -82,9 +88,10 @@
                   id="last"
                   name="last"
                 /><br>
+                <!---->
               </div>
               <div
-                class="formData" data-error="0" data-error-visible="true">
+                class="formData" data-error="0" data-error-visible="true"> <!---->
                 <label>E-mail</label><br>
                 <input
                   class="text-control"
@@ -92,10 +99,11 @@
                   id="email"
                   name="email"
                 /><br>
+                <!---->
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>  <!---->
                 <input
                   class="text-control"
                   type="date"
@@ -103,14 +111,19 @@
                   name="birthdate"
                 /><br>
               </div>
+
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br> <!---->
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              <div
-                class="formData">
+
+              <p class="text-label">
+                A quel tournoi souhaitez-vous participer cette année ?
+              </p>
+
+              <div class="formData">
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -119,9 +132,9 @@
                   value="New York"
                 />
                 <label class="checkbox-label" for="location1">
-                  <span class="checkbox-icon"></span>
-                  New York</label
-                >
+                  <span class="checkbox-icon">
+                  </span>New York</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -129,10 +142,11 @@
                   name="location"
                   value="San Francisco"
                 />
+
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
+                  San Francisco</label>
+
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -140,6 +154,7 @@
                   name="location"
                   value="Seattle"
                 />
+
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
                   Seattle</label
@@ -178,6 +193,7 @@
                   Portland</label
                 >
               </div>
+              <!---->
 
               <div
                 class="formData">
@@ -192,6 +208,7 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <!---->
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -206,6 +223,10 @@
                 value="C'est parti"
               />
             </form>
+
+
+
+            
           </div>
         </div>
       </div>
