@@ -12,6 +12,7 @@ const quantity = document.querySelector("input[name=quantity]");
 const city = document.querySelector("input[type=radio]");       
 const user = document.querySelector("input[type=checkbox]");
 const modalMessageThanks = document.querySelector("#messageThanks");
+//const formData = document.querySelectorAll(".formData");
 
 
 /* ECOUTE DES EVENEMENTS */
