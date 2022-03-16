@@ -11,7 +11,8 @@ const birthdate = document.querySelector("input[name=birthdate]");
 const quantity = document.querySelector("input[name=quantity]");
 const city = document.querySelector("input[type=radio]");       
 const user = document.querySelector("input[type=checkbox]");
-const modalMessageThanks = document.querySelector("#messageThanks");
+const modalMessageThanks = document.querySelector("#messageThanks");  // Modale finale de remerciement
+const closeThanks = document.querySelector(".closeThanksBtn");
 //const formData = document.querySelectorAll(".formData");
 
 
@@ -176,9 +177,9 @@ function cityValidation () {
       cityError.innerHTML = "Vous avez choisi" + city[i].value;
     }
   }
-  if (checked == true); {     
+  if (checked == false); {     
     cityError.innerHTML = "Veuillez choisir une ville";
-  /*cityError.style.color = "#e54858";*/
+  
   }
 }
 
@@ -219,6 +220,6 @@ function validate() {
 
 /* Affichage de la modale finale */
 function modalThanks() {
-  modalThanks.style.display = "block";
+  modalMessageThanks.style.display = "block";
 } 
 
