@@ -61,7 +61,7 @@
               onsubmit="return validate();"
             >
 
-              <div class="formData" data-error="Veuillez renseigner votre prénom" data-error-visible="true">
+              <div class="formData" data-error="Veuillez renseigner votre prénom" data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
@@ -73,7 +73,7 @@
                 <span id="firstNameError"></span>
               </div>
 
-              <div class="formData" data-error="Veuillez renseigner votre nom" data-error-visible="true">
+              <div class="formData" data-error="Veuillez renseigner votre nom" data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input
                   class="text-control"
@@ -85,7 +85,7 @@
                 <span id="lastNameError"></span>
               </div>
 
-              <div class="formData" data-error="Veuillez renseigner votre e-mail" data-error-visible="true">
+              <div class="formData" data-error="Veuillez renseigner votre e-mail" data-error-visible="false">
                 <label>E-mail</label><br>
                 <input
                   class="text-control"
@@ -96,7 +96,7 @@
                 <span id="emailError"></span>
               </div>
 
-              <div class="formData" data-error="Veuillez renseigner votre date de naissance" data-error-visible="true">
+              <div class="formData" data-error="Veuillez renseigner votre date de naissance" data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br> 
                 <input
                   class="text-control"
@@ -107,7 +107,7 @@
                 <span id="birthdateError"></span>
               </div>
 
-              <div class="formData" data-error="Veuillez renseigner un nombre de 0 à 99" data-error-visible="true">
+              <div class="formData" data-error="Veuillez renseigner un nombre de 0 à 99" data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br> 
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"> 
                 <span id="quantityError"></span>
@@ -117,7 +117,7 @@
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
 
-              <div class="formData" data-error="Veuillez choisir une ville" data-error-visible="true">
+              <div class="formData" data-error="Veuillez choisir une ville" data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -187,7 +187,7 @@
                 <span id="cityError"></span>
               </div>
               
-              <div class="formData" data-error="Veuillez accepter les conditions d'utilisation" data-error-visible="true">
+              <div class="formData" data-error="Veuillez accepter les conditions d'utilisation" data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -220,8 +220,8 @@
               <span id="formError"></span>
               <div class="messageThanks" id="messageThanks">
                 <div class="message-thanks">
-                  <p>Merci pour votre incription</p>
-                  <button class="button closeThanks">Fermer</button>
+                  <p>Merci ! Votre réservation a été reçue</p>
+                  <button class="closeThanksBtn">Fermer</button>
                 </div>
               </div>
             

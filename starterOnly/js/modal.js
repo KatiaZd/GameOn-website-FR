@@ -1,6 +1,6 @@
 /* AFFECTATION DES CONSTANTES AU DOM */
 
-const modalbg = document.querySelector(".bground");           
+const modalbg = document.querySelector(".bground");           // Modale formulaire
 const modalBtn = document.querySelectorAll(".modal-btn");     // Bouton "Je m'inscrit"
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close");          // Fermeture de la modale
@@ -26,6 +26,7 @@ birthdate.addEventListener("input", birthdateValidation);
 quantity.addEventListener("input", quantityValidation);
 city.addEventListener("radio", cityValidation);
 user.addEventListener("input", userValidation);
+modalMessageThanks.addEventListener("click", modalThanks);
 
 
 /* FONCTIONS OUVERTURE/FERMETURE DE LA MODALE */
@@ -133,12 +134,18 @@ function birthdateValidation() {
   const date = new Date("1940-01-01");
   const date1 = new Date("2020-01-01");
   const birthdateUser =  new Date(birthdate.value)
-  if (birthdateUser <= date) {
-    console.log("birthdateUser")    
+  if (birthdateUser <= date) {  
+    birthdate.classList.add("input-error");
+    birthdate.classList.remove("input-validate");
+    birthdateError.innerHTML = "Veuillez saisir une date valide";
+    return false;
   }
 
   else {
-    console.log("date")
+    birthdate.classList.remove("input-error");
+    birthdate.classList.add("input-validate");
+    birthdateError.innerHTML = "";
+    return true;  
   }
 }
 
@@ -162,18 +169,17 @@ function quantityValidation() {
 // fonction city
 function cityValidation () {
   console.log(city.value);
-
-
-  for (let i = 0; i < cityValidation.lenghth; i++) 
-  if (city[i].checked) {
-    cityError.innerHTML = "Vous avez choisi" + city[i].value;
-    cityError.style.color = "#279e7a";
-    return true;
+  var checked = false
+  for (let i = 0; i < city.length; i++) {
+    if (city[i].checked) {
+      checked = true;
+      cityError.innerHTML = "Vous avez choisi" + city[i].value;
+    }
   }
-  cityError.innerHTML = "Veuillez choisir une ville";
+  if (checked == true); {     
+    cityError.innerHTML = "Veuillez choisir une ville";
   /*cityError.style.color = "#e54858";*/
-  return false;
-
+  }
 }
 
 
@@ -191,43 +197,14 @@ function userValidation (){
 
 // fonction formulaire si tout est ok
 
-/* Affichage de la modale finale */
- function modalThanks() {
-  modalThanks.style.display = "block";
-} 
-
-
 function validate() {
   let validate = true;
 
-  if (!firstNameValidation()) { 
-    console.log("prénom invalide");
+  if (!firstNameValidation()||!lastNameValidation()||!emailValidation()||
+  !birthdateValidation()||!quantityValidation()||cityValidation()||!userValidation()) { 
     validation = false;
   }
-  if (!lastNameValidation()) {
-    console.log("nom invalide");
-    validation = false;
-  }
-  if (!emailValidation()) {
-    console.log("mail invalide");
-    validation = false;
-  }
-  if (!birthdateValidation()) {
-    console.log("date de naissance invalide");
-    validation = false;
-  }
-    if (!quantityValidation()) {
-    console.log("nombre d'évènement invalide");
-    validation = false;
-  }
-    if (cityValidation()) {
-    console.log("aucune ville cochée");
-    validation = false;
-  }
-    if (!userValidation()) {
-    console.log("conditions d'utilisation non cochée");
-    validation = false;
-  }
+
   if (validation === true) {
     formError.innerHTML = "";
     form.reset();
@@ -237,5 +214,11 @@ function validate() {
   else{
     formError.innerHTML = "Veuillez renseigner tous les champs";
   }
+  return false;
 }
+
+/* Affichage de la modale finale */
+function modalThanks() {
+  modalThanks.style.display = "block";
+} 
 
