@@ -15,9 +15,6 @@ const user                = document.querySelector("input[type=checkbox]");
 const modalMessageThanks  = document.querySelector("#messageThanks");           // Modale finale de remerciement
 const closeThanks         = document.querySelector(".closeThanksBtn");          // Bouton "Fermer", modale final
 
-
-
-
 /* ECOUTE DES EVENEMENTS */
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  // Ouverture de la modale
@@ -32,13 +29,13 @@ user.addEventListener("input", userValidation);
 closeThanks.addEventListener("click", closeFormModal);
 
 
-
 /* FONCTIONS OUVERTURE/FERMETURE DE LA MODALE */
 
 // fonction ouverture de la modale
 function launchModal() {
   modalbg.style.display = "block";
   modalMessageThanks.style.display = "none";  //Modale de remerciement n'apparait pas en dessous du formulaire
+  form.style.display = "block";               //Formulaire réinitialiser après validation
 }
 
 // fonction fermeture de la modale
@@ -56,7 +53,6 @@ function editNav() {
     x.className = "topnav";
   }
 }
-
 
 /* FONCTIONS DES INPUTS */
 
@@ -207,7 +203,7 @@ function validate() {
 
   if (validation === true) {
     formError.innerHTML = "";           // Validation du form. = pas de message d'erreur
-    form.reset();                       // Le form. se réinitialise (= s'efface)
+    form.reset();                       // Le form. disparaît
     form.style.display = "none";        // Fermeture de la modale
     modalThanks();                      // Modale de remerciement s'affiche
   } 
@@ -221,4 +217,5 @@ function validate() {
 function modalThanks() {
   modalMessageThanks.style.display = "block";
 } 
+
 
