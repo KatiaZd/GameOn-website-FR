@@ -209,6 +209,22 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+span {
+  color: #e54858;
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 2px 0 10px;
+}
+
+.inputError {
+  border: 3px solid #e54858;
+}
+.inputValidate {
+  border: 3px solid green;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
