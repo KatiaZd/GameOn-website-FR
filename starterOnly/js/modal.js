@@ -201,15 +201,15 @@ function validate() {
   var validation = true;
 
   if (!firstNameValidation()||!lastNameValidation()||!emailValidation()||
-  !birthdateValidation()||!quantityValidation()||!cityValidation()||!userValidation()) { 
+  !birthdateValidation()||!quantityValidation()||cityValidation()||!userValidation()) { 
     validation = false;
   }
 
   if (validation === true) {
-    formError.innerHTML = "";         // Validation du form. = pas de message d'erreur
-    form.reset();                     // Le form. se réinitialise (= s'efface)
-    form.style.display = "none";      // Fermeture de la modale
-    modalThanks();                    // Modale de remerciement s'affiche
+    formError.innerHTML = "";           // Validation du form. = pas de message d'erreur
+    form.reset();                       // Le form. se réinitialise (= s'efface)
+    form.style.display = "none";        // Fermeture de la modale
+    modalThanks();                      // Modale de remerciement s'affiche
   } 
   else{
     formError.innerHTML = "Veuillez renseigner tous les champs";
