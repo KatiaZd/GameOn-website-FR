@@ -2,9 +2,8 @@
 
 const modalbg             = document.querySelector(".bground");               // Modale formulaire
 const form                = document.querySelector("form[name=reserve]");     // Corps du formulaire
-const modalBtn            = document.querySelectorAll(".modal-btn");          // Bouton "Je m'inscrit"
-const formData            = document.querySelectorAll(".formData");           // Data-error
-const closeModal          = document.querySelector(".close");                 // Fermeture de la modale
+const modalBtn            = document.querySelectorAll(".modal-btn");          // Bouton "Je m'inscris"
+const closeModal          = document.querySelector(".close");                 // Fermeture X de la modale
 const firstName           = document.querySelector("input[name=first]");
 const lastName            = document.querySelector("input[name=last]");
 const email               = document.querySelector("input[name=email]");
@@ -14,11 +13,12 @@ const city                = document.querySelector("input[type=radio]");
 const user                = document.querySelector("input[type=checkbox]");
 const modalMessageThanks  = document.querySelector("#messageThanks");           // Modale finale de remerciement
 const closeThanks         = document.querySelector(".closeThanksBtn");          // Bouton "Fermer", modale final
+//const validationFinal     = document.querySelector("input[type=submit");
 
 /* ECOUTE DES EVENEMENTS */
 
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  // Ouverture de la modale
-closeModal.addEventListener("click", closeFormModal);                   // Fermeture de la modale au click
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));          // Ouverture de la modale (sur le bouton "Je m'inscris")
+closeModal.addEventListener("click", closeFormModal);                           // Fermeture X de la modale au click
 firstName.addEventListener("input", firstNameValidation);
 lastName.addEventListener("input", lastNameValidation);
 email.addEventListener("input", emailValidation);
@@ -26,16 +26,16 @@ birthdate.addEventListener("input", birthdateValidation);
 quantity.addEventListener("input", quantityValidation);
 city.addEventListener("radio", cityValidation);
 user.addEventListener("input", userValidation);
-closeThanks.addEventListener("click", closeFormModal);
-
+closeThanks.addEventListener("click", closeFormModal);                    // Fermeture sur bouton, de la modale de remerciement
+//validationFinal.addEventListener("click", validate);
 
 /* FONCTIONS OUVERTURE/FERMETURE DE LA MODALE */
 
 // fonction ouverture de la modale
 function launchModal() {
   modalbg.style.display = "block";
-  modalMessageThanks.style.display = "none";  //Modale de remerciement n'apparait pas en dessous du formulaire
-  form.style.display = "block";               //Formulaire réinitialiser après validation
+  modalMessageThanks.style.display = "none";      //Modale de remerciement n'apparait pas en dessous du formulaire
+  form.style.display = "block";                   //Formulaire réinitialiser après validation
 }
 
 // fonction fermeture de la modale
@@ -69,7 +69,7 @@ function firstNameValidation() {
   else if (regexName.test(firstName.value) === false) { 
     firstName.classList.add("inputError");
     firstName.classList.remove("inputValidate");
-    firstNameError.innerHTML = "Veuillez saisir 2 caractères minimum";
+    firstNameError.innerHTML = "Format incorrect";
     return false;
   } 
   else {
@@ -191,8 +191,7 @@ function userValidation(){
   }
 }
 
-// fonction formulaire si tout est ok
-
+// fonction formulaire validation finale
 function validate() {
   var validation = true;
 
@@ -203,9 +202,9 @@ function validate() {
 
   if (validation === true) {
     formError.innerHTML = "";           // Validation du form. = pas de message d'erreur
-    form.reset();                       // Le form. disparaît
-    form.style.display = "none";        // Fermeture de la modale
-    modalThanks();                      // Modale de remerciement s'affiche
+    form.reset();                       // Le form. se dissipe
+    form.style.display = "none";        // Fermeture de la modale form.
+    modalThanks();                      // Ouverture de la modale de remerciement
   } 
   else{
     formError.innerHTML = "Veuillez renseigner tous les champs";

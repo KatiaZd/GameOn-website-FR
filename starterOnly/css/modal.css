@@ -91,8 +91,6 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -112,8 +110,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -141,9 +137,6 @@ main {
   margin-top: 400px;
   margin-bottom: 50px;
 }
-
-
-
 
 .modal-btn:hover {
   background: #3876ac;
@@ -227,6 +220,7 @@ input {
   height: 48px;
 }
 
+/* Affichage des erreurs */
 span {
   color: #e54858;
   font-size: 13px;
@@ -239,33 +233,9 @@ span {
   border: 3px solid #e54858;
 }
 .inputValidate {
-  border: 3px solid green;
+  border: 3px solid #279e7a;
 }
-
-.formData[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s;
-}
-.formData[data-error-visible="true"]::after {
-  opacity: 1;
-}
-.formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
-}
- 
-input[data-error]::after { /*Affiche l'erreur*/
-    content: attr(data-error);
-    font-size: 0.4em;
-    color:red;
-} 
+                            /* - */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -439,7 +409,7 @@ input[data-error]::after { /*Affiche l'erreur*/
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 80vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
