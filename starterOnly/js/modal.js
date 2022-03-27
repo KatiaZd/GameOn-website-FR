@@ -13,7 +13,7 @@ const city                = document.querySelector("input[type=radio]");
 const user                = document.querySelector("input[type=checkbox]");
 const modalMessageThanks  = document.querySelector("#messageThanks");           // Modale finale de remerciement
 const closeThanks         = document.querySelector(".closeThanksBtn");          // Bouton "Fermer", modale final
-//const validationFinal     = document.querySelector("input[type=submit");
+
 
 /* ECOUTE DES EVENEMENTS */
 
@@ -27,16 +27,19 @@ quantity.addEventListener("input", quantityValidation);
 city.addEventListener("radio", cityValidation);
 user.addEventListener("input", userValidation);
 closeThanks.addEventListener("click", closeFormModal);                    // Fermeture sur bouton, de la modale de remerciement
-//validationFinal.addEventListener("click", validate);
+
 
 /* FONCTIONS OUVERTURE/FERMETURE DE LA MODALE */
 
 // fonction ouverture de la modale
 function launchModal() {
   modalbg.style.display = "block";
-  modalMessageThanks.style.display = "none";      //Modale de remerciement n'apparait pas en dessous du formulaire
-  form.style.display = "block";                   //Formulaire réinitialiser après validation
+  modalMessageThanks.style.display = "none";                                //Modale de remerciement n'apparait pas en dessous du formulaire
+  let green = Array.from(document.querySelectorAll(".inputValidate"));     //Boucle afin de supp. inputValidate à la réouverture du form.
+  green.forEach((green) => green.classList.remove("inputValidate"));
+  form.style.display = "block";                                            //Formulaire réinitialiser après validation
 }
+
 
 // fonction fermeture de la modale
 function closeFormModal() {
@@ -60,7 +63,7 @@ function editNav() {
 function firstNameValidation() {
   let regexName = /^[A-Za-zÀ-ÿ-']{2,20}$/;
 
-  if (firstName.value <=1 ) {
+  if (firstName.value <=2 ) {
     firstName.classList.add("inputError");
     firstName.classList.remove("inputValidate");
     firstNameError.innerHTML = "Veuillez saisir 2 caractères minimum";
@@ -84,7 +87,7 @@ function firstNameValidation() {
 function lastNameValidation() {
   let regexName = /^[A-Za-zÀ-ÿ-']{2,20}$/;
 
-  if (lastName.value <=1) {
+  if (lastName.value <=2) {
     lastName.classList.add("inputError");
     lastName.classList.remove("inputValidate");
     lastNameError.innerHTML = "Veuillez saisir 2 caractères minimum";
@@ -130,13 +133,19 @@ function emailValidation() {
 
 // fonction birthdate
 function birthdateValidation() {
-  const date = new Date("1940-01-01");
-  const date1 = new Date("2020-01-01");
+  const date = new Date("1939-12-31");
+  const date1 = new Date("2008-01-01");
   const birthdateUser =  new Date(birthdate.value)
   if (birthdateUser <= date) {  
     birthdate.classList.add("inputError");
     birthdate.classList.remove("inputValidate");
     birthdateError.innerHTML = "Veuillez saisir une date valide";
+    return false;
+  }
+  else if (birthdateUser >= date1) {  
+    birthdate.classList.add("inputError");
+    birthdate.classList.remove("inputValidate");
+    birthdateError.innerHTML = "Vous devez avoir minimum 15 ans pour participer à l'événement";
     return false;
   }
 
@@ -191,9 +200,12 @@ function userValidation(){
   }
 }
 
-// fonction formulaire validation finale
+
+
+/* fonction formulaire validation finale */
 function validate() {
   var validation = true;
+ // var firstValidate = firstNameValidation;
 
   if (!firstNameValidation()||!lastNameValidation()||!emailValidation()||
   !birthdateValidation()||!quantityValidation()||cityValidation()||!userValidation()) { 
@@ -208,6 +220,7 @@ function validate() {
   } 
   else{
     formError.innerHTML = "Veuillez renseigner tous les champs";
+    formError.classList.remove("inputError");
   }
   return false;
 }
@@ -215,6 +228,7 @@ function validate() {
 /* Affichage de la modale finale */
 function modalThanks() {
   modalMessageThanks.style.display = "block";
+  
 } 
 
 
