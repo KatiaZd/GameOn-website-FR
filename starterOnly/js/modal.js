@@ -201,13 +201,15 @@ function userValidation(){
 }
 
 
+
 /* fonction formulaire validation finale */
 function validate() {
-  var validation = false;
+  var validation = true;
+ // var firstValidate = firstNameValidation;
 
-  if (firstNameValidation() + lastNameValidation() + emailValidation() +
-  birthdateValidation() + quantityValidation() + cityValidation() + userValidation()) { 
-    validation = true;
+  if (!firstNameValidation()||!lastNameValidation()||!emailValidation()||
+  !birthdateValidation()||!quantityValidation()||cityValidation()||!userValidation()) { 
+    validation = false;
   }
 
   if (validation === true) {
@@ -216,7 +218,7 @@ function validate() {
     form.style.display = "none";        // Fermeture de la modale form.
     modalThanks();                      // Ouverture de la modale de remerciement
   } 
-  else {
+  else{
     formError.innerHTML = "Veuillez renseigner tous les champs";
     formError.classList.remove("inputError");
   }
@@ -228,5 +230,3 @@ function modalThanks() {
   modalMessageThanks.style.display = "block";
   
 } 
-
-
