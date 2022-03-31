@@ -9,7 +9,7 @@ const lastName            = document.querySelector("input[name=last]");
 const email               = document.querySelector("input[name=email]");
 const birthdate           = document.querySelector("input[name=birthdate]");
 const quantity            = document.querySelector("input[name=quantity]");
-const city                = document.querySelector("input[type=radio]");       
+const city                = document.querySelectorAll("input[type=radio]");       
 const user                = document.querySelector("input[type=checkbox]");
 const modalMessageThanks  = document.querySelector("#messageThanks");           // Modale finale de remerciement
 const closeThanks         = document.querySelector(".closeThanksBtn");          // Bouton "Fermer", modale final
@@ -24,7 +24,7 @@ lastName.addEventListener("input", lastNameValidation);
 email.addEventListener("input", emailValidation);
 birthdate.addEventListener("input", birthdateValidation);
 quantity.addEventListener("input", quantityValidation);
-city.addEventListener("radio", cityValidation);
+city.forEach((bicity) => bicity.addEventListener("radio", cityValidation));
 user.addEventListener("input", userValidation);
 closeThanks.addEventListener("click", closeFormModal);                    // Fermeture sur bouton, de la modale de remerciement
 
@@ -135,13 +135,15 @@ function emailValidation() {
 function birthdateValidation() {
   const date = new Date("1939-12-31");
   const date1 = new Date("2008-01-01");
-  const birthdateUser =  new Date(birthdate.value)
+  const birthdateUser =  new Date(birthdate.value);
+ 
   if (birthdateUser <= date) {  
     birthdate.classList.add("inputError");
     birthdate.classList.remove("inputValidate");
     birthdateError.innerHTML = "Veuillez saisir une date valide";
     return false;
   }
+
   else if (birthdateUser >= date1) {  
     birthdate.classList.add("inputError");
     birthdate.classList.remove("inputValidate");
@@ -184,8 +186,9 @@ function cityValidation() {
   }
   if (checked == false) {     
     cityError.innerHTML = "Veuillez choisir une ville";
-  
+    return false;
   }
+  return true;
 }
 
 // fonction conditions d'utilisation
@@ -204,23 +207,29 @@ function userValidation(){
 
 /* fonction formulaire validation finale */
 function validate() {
-  var validation = true;
- // var firstValidate = firstNameValidation;
 
-  if (!firstNameValidation()||!lastNameValidation()||!emailValidation()||
-  !birthdateValidation()||!quantityValidation()||cityValidation()||!userValidation()) { 
-    validation = false;
-  }
+  var firstNameIsValid = firstNameValidation();
+  var lastNameIsValide = lastNameValidation();
+  var emailIsValid = emailValidation();
+  var birthdateIsValid = birthdateValidation();
+  var quantityIsValid = quantityValidation();
+  var cityIsValid = cityValidation();
+  var userIsValid = userValidation();
 
-  if (validation === true) {
+  const allFieldsAreValid = firstNameIsValid && lastNameIsValide && emailIsValid && birthdateIsValid
+  && quantityIsValid && cityIsValid && userIsValid;
+
+  const formIsInvalid = !allFieldsAreValid;
+
+  if (formIsInvalid) { 
+    formError.innerHTML = "Veuillez renseigner tous les champs";
+    formError.classList.remove("inputError");
+
+  } else {
     formError.innerHTML = "";           // Validation du form. = pas de message d'erreur
     form.reset();                       // Le form. se dissipe
     form.style.display = "none";        // Fermeture de la modale form.
     modalThanks();                      // Ouverture de la modale de remerciement
-  } 
-  else{
-    formError.innerHTML = "Veuillez renseigner tous les champs";
-    formError.classList.remove("inputError");
   }
   return false;
 }
