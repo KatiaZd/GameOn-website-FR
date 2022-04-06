@@ -133,10 +133,20 @@ function emailValidation() {
 
 // fonction birthdate
 function birthdateValidation() {
+  let regexBirthdate = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+  const birthdateUser =  new Date(birthdate.value);
   const date = new Date("1939-12-31");
   const date1 = new Date("2008-01-01");
-  const birthdateUser =  new Date(birthdate.value);
- 
+  var b = birthdate.value.match(regexBirthdate); //[23,01,1990] ou null
+
+  if (b == null) {
+    birthdate.classList.add("inputError");
+    birthdate.classList.remove("inputValidate");
+    birthdateError.innerHTML = "Veuillez saisir une date valide";
+    return false;
+  }
+  
+
   if (birthdateUser <= date) {  
     birthdate.classList.add("inputError");
     birthdate.classList.remove("inputValidate");
@@ -176,12 +186,16 @@ function quantityValidation() {
 }
 
 
+
 // fonction city
 function cityValidation() {
   var checked = false;
   for (let i = 0; i < city.length; i++) {
     if (city[i].checked) {
       checked = true;
+
+
+      
     }
   }
   if (checked == false) {     
