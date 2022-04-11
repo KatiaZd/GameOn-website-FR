@@ -185,20 +185,16 @@ function quantityValidation() {
   }
 }
 
-
-
 // fonction city
 function cityValidation() {
-  var checked = false;
+  var cityCheck = false;
   for (let i = 0; i < city.length; i++) {
     if (city[i].checked) {
-      checked = true;
-
-
-      
+      cityCheck = true;
+      cityError.innerHTML = "";
     }
   }
-  if (checked == false) {     
+  if (cityCheck == false) {     
     cityError.innerHTML = "Veuillez choisir une ville";
     return false;
   }
@@ -216,8 +212,6 @@ function userValidation(){
     return true;
   }
 }
-
-
 
 /* fonction formulaire validation finale */
 function validate() {
