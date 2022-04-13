@@ -24,7 +24,7 @@ Pour l'inscription à un tournoi de jeux vidéos, un formulaire a été mis en p
     - La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée ;
     
 - Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est pas correcte, sous le champ de saisie associé ;
-- Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation ;
+- Conserver les données du formulaire lorsqu'il ne passe pas la validation ;
 - Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur.
 
 
