@@ -15,9 +15,9 @@ Pour l'inscription à un tournoi de jeux vidéos, un formulaire a été mis en p
 
 - Fermer la modale : Ajouter la fonctionnalité au bouton (x) ;
 - Les données doivent être saisies correctement :
-    - Le champ Prénom a un minimum de 2 caractères / n'est pas vide ;
-    - Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide ;
-    - L'adresse électronique est valide ;
+    - Le champ prénom a un minimum de 2 caractères / n'est pas vide ;
+    - Le champ nom de famille a un minimum de 2 caractères / n'est pas vide ;
+    - L'adresse e-mail est valide ;
     - La date de naissance est au bon format JJ/MM/AAAA avec une restriction pour les -15 ans ;
     - Pour le nombre de concours, une valeur numérique est saisie ;
     - Pour la ville, un bouton radio est sélectionné ;
