@@ -7,7 +7,7 @@ Pour l'inscription à un tournoi de jeux vidéos, un formulaire a été mis en p
 
 <h2>Brief</h2>
 
-- La structure HTML et le style CSS sont fournis ainsi que le JavaScript pour le lancement de la maquette ;
+- La structure HTML et le style CSS sont fournis ainsi que le JavaScript pour le lancement du formulaire d'inscription ;
 - Corriger/ajouter du code HTML quand c'est nécessaire (notamment pour la modale de remerciement) ;
 - Implémenter les entrées du formulaire.
 
