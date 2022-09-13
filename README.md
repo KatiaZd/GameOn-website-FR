@@ -1,6 +1,6 @@
 # Projet GameOn
 
-Projet "GameOn - Créer une landing page avec JavaScript" du parcours "Développeur d'application JavaScript React" d'OCR.
+Projet "GameOn - Créer une landing page avec JavaScript" d'OCR.
 
 GameOn est une entreprise (fictive) spécialisée dans les conférences et les concours de jeux. 
 Pour l'inscription à un tournoi de jeux vidéos, un formulaire a été mis en place. À la validation de celui-ci, un message de remerciement doit s'afficher à condition que tous les champs soient correctement remplis, avec la syntaxe demandée.
